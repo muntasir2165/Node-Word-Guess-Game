@@ -19,6 +19,7 @@
   "homepage": "https://github.com/muntasir2165/Node-Word-Guess-Game#readme",
   "dependencies": {
     "chalk": "^2.4.1",
+    "fs": "0.0.1-security",
     "readline-sync": "^1.4.9",
     "sync-request": "^6.0.0"
   }

@@ -16,6 +16,8 @@ var Word = function(wordLetters){
 			//method and then appending the returned string to the empty
 			//string
 			stringOutput += letter + "";
+			//OR
+			//stringOutput += letter.toString();
 		});
 		return stringOutput;
 	};
@@ -23,6 +25,13 @@ var Word = function(wordLetters){
 		this.letterArray.forEach(function(letter){
 			letter.checkGuessedLetter(guessedLetterCharacter);
 		});
+	};
+	this.isWordGuessed = function(){
+		var guessed = true;
+		this.letterArray.forEach(function(letter){
+			guessed = guessed && letter.isLetterGuessed();
+		});
+		return guessed;
 	};
 };
 

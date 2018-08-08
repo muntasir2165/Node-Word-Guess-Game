@@ -13,6 +13,9 @@ var Letter = function(letterCharacter) {
 			this.guessedLetter = true;
 		}
 	};
+	this.isLetterGuessed = function() {
+		return this.guessedLetter;
+	};
 };
 
 // Letter.prototype.toString = function(){
