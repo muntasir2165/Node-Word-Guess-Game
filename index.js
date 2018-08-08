@@ -12,8 +12,19 @@ var positiveFeedback = ["Awesome!", "Nice work!", "Great job!", "Well done!", "F
 var negativeFeedback = ["Sorry!", "Bad luck!", "Very unfortunate!"];
 
 
-var count = 0;
-while (count < 3) {
+var gamesPlayed = 0;
+var numberOfGames = 3;
+var userChosenNumberOfGames = parseInt(process.argv[2]);
+if (isNaN(userChosenNumberOfGames)) {
+	console.log(chalk.yellow("No number entered. Therefore, a game with " + numberOfGames + " set of random numbers will be played."));
+} else {
+	numberOfGames = userChosenNumberOfGames;
+	console.log(chalk.yellow("As per your choice, a game with " + numberOfGames + " set of random numbers will be played."));
+}
+
+var wins = 0;
+var losses = 0;
+while (gamesPlayed < numberOfGames) {
 	//use the upper case version of the random word to avoid
 	//comparison issues with respect to capitalization
 	var word = getAlphabeticWord().toUpperCase();
@@ -22,7 +33,7 @@ while (count < 3) {
 
 	initializeGlobalVariables(word);
 	playGame(word);
-	count++;
+	gamesPlayed++;
 }
 
 function initializeGlobalVariables(word) {
@@ -35,7 +46,6 @@ function getAlphabeticWord() {
 	while (!isStringOnlyLetters(word)) {
 		word = getRandomWord();
 	}
-	
 	return word;
 }
 
@@ -55,7 +65,7 @@ function getRandomWord() {
 function playGame(word) {
 	console.log("Word to Guess:");
 	console.log(chalk.white(currentWord.toString() + "\n"));
-	var wrongLetterGuesses = "";
+	var wrongLetterGuesses = ""; //keep track of wrong letter guesses
 
 	// while (currentWord.toString().includes("_") && guessesRemaining > 0) {
 	while (!currentWord.isWordGuessed() && guessesRemaining > 0) {
@@ -97,10 +107,13 @@ function playGame(word) {
 	if (currentWord.isWordGuessed()) {
 		var compliment = positiveFeedback[Math.floor(Math.random() * positiveFeedback.length)];
 		console.log(compliment + " You have successfully guessed the word: " + word + ". You are a superstar!");
+		wins++;
 	} else {
 		var consolation = negativeFeedback[Math.floor(Math.random() * negativeFeedback.length)];
 		console.log(consolation + " You failed to successfully guessed the word: " + word + ". Better luck next time!");
+		losses++;
 	}
+	console.log("\nGame stats:\nWins: " + wins + "\nLosses: " + losses);
 }
 
 
