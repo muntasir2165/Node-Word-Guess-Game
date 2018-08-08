@@ -66,13 +66,16 @@ function playGame(word) {
 			console.log(chalk.yellow("Error: You didn't enter any letter."));
 			continue;
 		} else if (guessedLetterCharacter.length > 1) {
-			console.log(chalk.yellow("Invalid entry: Please type in only one letter at a time."));
+			console.log(chalk.yellow("Invalid entry: Please enter only one letter at a time."));
+			continue;
+		} else if (!isStringOnlyLetters(guessedLetterCharacter)) {
+			console.log(chalk.yellow("Invalid entry: Please enter only letters of the alphabet"));
 			continue;
 		} else if (currentWord.toString().includes(guessedLetterCharacter)) {
-			console.log(chalk.yellow("Duplicate: You have already CORRECTLY guessed the letter: "+ guessedLetterCharacter));
+			console.log(chalk.yellow("Duplicate! You have already CORRECTLY guessed the letter: "+ guessedLetterCharacter));
 			continue;
 		} else if (wrongLetterGuesses.includes(guessedLetterCharacter)) {
-			console.log(chalk.yellow("Duplicate: You have already INCORRECTLY guessed the letter: "+ guessedLetterCharacter));
+			console.log(chalk.yellow("Duplicate! You have already INCORRECTLY guessed the letter: "+ guessedLetterCharacter));
 			continue;
 		}
 

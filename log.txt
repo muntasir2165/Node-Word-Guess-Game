@@ -6,3 +6,6 @@ New random word to guess: PROSTIES
 New random word to guess: UNWINKINGLY
 New random word to guess: WRINGERS
 New random word to guess: BREAKNECK
+New random word to guess: DYNAMIZE
+New random word to guess: BIOAVAILABLE
+New random word to guess: LANGAR
