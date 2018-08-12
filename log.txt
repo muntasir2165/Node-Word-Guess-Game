@@ -16,3 +16,6 @@ New random word to guess: BRACHYRHYNCHUS
 New random word to guess: WEATHERIZE
 New random word to guess: LOGGERHEAD
 New random word to guess: SICKIE
+New random word to guess: VESTIGIUM
+New random word to guess: REMELT
+New random word to guess: GREENS

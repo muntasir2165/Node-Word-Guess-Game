@@ -4,7 +4,7 @@ A Node.js Command Line Word Guess Game
 
 ## Project Motivation
 
-This app was developed as part of the second Node.js homework assignment at the University of Toronto Full Stack Web Development bootcamp. This project is essentially an interactive command line word guess game where the user has to guess the letters of a word/phrase. The app has been configured to prompt the user for movie names and the number of movies they want to guess in a game.
+This app was developed as part of the second Node.js homework assignment at the University of Toronto Full Stack Web Development bootcamp. This project is essentially an interactive command line word guess game where the user has to guess the letters of a word/phrase. The app has been configured to prompt the user for random words and the number of words they want to guess in a game.
 
 ## Getting Started
 
