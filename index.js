@@ -6,17 +6,17 @@ var readline = require("readline-sync");
 var chalk = require("chalk");
 var fs = require("fs");
 
+// global variables to keep track of game state
 var currentWord;
 var guessesRemaining;
 var positiveFeedback = ["Awesome!", "Nice work!", "Great job!", "Well done!", "Fantastic!"];
 var negativeFeedback = ["Sorry!", "Bad luck!", "Very unfortunate!"];
 
-
 var gamesPlayed = 0;
 var numberOfGames = 3;
 var userChosenNumberOfGames = parseInt(process.argv[2]);
 if (isNaN(userChosenNumberOfGames)) {
-	console.log(chalk.yellow("No number entered. Therefore, a game with " + numberOfGames + " set of random numbers will be played."));
+	console.log(chalk.yellow("Invalid input/no number entered. Therefore, a game with " + numberOfGames + " set of random numbers will be played."));
 } else {
 	numberOfGames = userChosenNumberOfGames;
 	console.log(chalk.yellow("As per your choice, a game with " + numberOfGames + " set of random numbers will be played."));
@@ -29,6 +29,7 @@ while (gamesPlayed < numberOfGames) {
 	//comparison issues with respect to capitalization
 	var word = getAlphabeticWord().toUpperCase();
 	// console.log("New random word to guess: " + word);
+	// append the new random word to guess into the log file
 	fs.appendFileSync("log.txt", "New random word to guess: " + word + "\n");
 
 	initializeGlobalVariables(word);
@@ -67,7 +68,6 @@ function playGame(word) {
 	console.log(chalk.white(currentWord.toString() + "\n"));
 	var wrongLetterGuesses = ""; //keep track of wrong letter guesses
 
-	// while (currentWord.toString().includes("_") && guessesRemaining > 0) {
 	while (!currentWord.isWordGuessed() && guessesRemaining > 0) {
 		var guessedLetterCharacter = readline.question(chalk.magentaBright("? Guess a letter! ")).toUpperCase();
 
@@ -99,7 +99,7 @@ function playGame(word) {
 		  	console.log(guessesRemaining + " guessess remaining!!!" + "\n");
 		  	console.log(chalk.white(currentWord.toString() + "\n"));
 		} else {
-			console.log(chalk.green("CORRECT!!!"));
+			console.log(chalk.green("CORRECT!!!\n"));
 		  	console.log(chalk.white(currentWord.toString() + "\n"));
 		}
 	}
@@ -110,7 +110,7 @@ function playGame(word) {
 		wins++;
 	} else {
 		var consolation = negativeFeedback[Math.floor(Math.random() * negativeFeedback.length)];
-		console.log(consolation + " You failed to successfully guessed the word: " + word + ". Better luck next time!");
+		console.log(consolation + " You failed to successfully guess the word: " + word + ". Better luck next time!");
 		losses++;
 	}
 	console.log("\nGame stats:\nWins: " + wins + "\nLosses: " + losses);

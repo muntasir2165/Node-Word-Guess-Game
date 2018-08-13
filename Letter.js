@@ -20,9 +20,9 @@ var Letter = function(letterCharacter) {
 
 // Letter.prototype.toString = function(){
 // 		if (this.guessedLetter){
-// 			return this.letterCharacter;
+// 			return " " + this.letterCharacter + " ";
 // 		} else {
-// 			return "_";
+// 			return " " + "_" + " ";
 // 		}
 // 	};
 

@@ -19,3 +19,8 @@ New random word to guess: SICKIE
 New random word to guess: VESTIGIUM
 New random word to guess: REMELT
 New random word to guess: GREENS
+New random word to guess: AWAVE
+New random word to guess: SPOUSEHOOD
+New random word to guess: OBJECTIFY
+New random word to guess: MUTAGENICITY
+New random word to guess: OPERATIONALIZATION
