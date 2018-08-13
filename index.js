@@ -113,7 +113,10 @@ function playGame(word) {
 		console.log(consolation + " You failed to successfully guess the word: " + word + ". Better luck next time!");
 		losses++;
 	}
-	console.log("\nGame stats:\nWins: " + wins + "\nLosses: " + losses);
+	console.log("\nGame Stats");
+	console.log("----------");
+	console.log(chalk.redBright("Wins: " + wins));
+	console.log(chalk.greenBright("Losses: " + losses));
 }
 
 
